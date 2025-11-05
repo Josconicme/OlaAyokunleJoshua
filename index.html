@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Joshua Ayokunle Ola - Full Stack Developer & Data Scientist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1191,6 +1194,57 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Version Control and Cache Busting
+        const SITE_VERSION = '1.0.0';
+        const LAST_UPDATED = '2025-11-05';
+        
+        // Check for updates every 5 minutes when page is active
+        let updateCheckInterval = setInterval(() => {
+            if (document.visibilityState === 'visible') {
+                fetch(window.location.href, {
+                    method: 'HEAD',
+                    cache: 'no-cache'
+                }).then(response => {
+                    const serverDate = new Date(response.headers.get('Last-Modified'));
+                    const cachedDate = new Date(localStorage.getItem('lastPageLoad') || 0);
+                    
+                    if (serverDate > cachedDate) {
+                        // Show update notification
+                        if (confirm('A new version of this website is available. Would you like to reload?')) {
+                            localStorage.setItem('lastPageLoad', new Date().toISOString());
+                            window.location.reload(true);
+                        }
+                    }
+                }).catch(() => {
+                    // Silently fail if offline
+                });
+            }
+        }, 300000); // Check every 5 minutes
+
+        // Store initial page load time
+        if (!localStorage.getItem('lastPageLoad')) {
+            localStorage.setItem('lastPageLoad', new Date().toISOString());
+        }
+
+        // Force reload images if they don't load properly
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                if (!this.dataset.retried) {
+                    this.dataset.retried = 'true';
+                    const src = this.src;
+                    this.src = '';
+                    setTimeout(() => {
+                        this.src = src + '?t=' + Date.now();
+                    }, 100);
+                }
+            };
+        });
+
+        // Log version info to console
+        console.log(`%c Portfolio Website v${SITE_VERSION}`, 'color: #667eea; font-size: 16px; font-weight: bold;');
+        console.log(`%c Last Updated: ${LAST_UPDATED}`, 'color: #764ba2; font-size: 12px;');
+        console.log(`%c Developer: Joshua Ayokunle Ola`, 'color: #6366f1; font-size: 12px;');
     </script>
 </body>
 </html>
