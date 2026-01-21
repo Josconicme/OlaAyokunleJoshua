@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthSync – Healthcare Management Platform | Joshua Ola</title>
+    <meta name="description"
+        content="Full-stack healthcare management platform with real-time patient monitoring, WebRTC video consultations, and AI-powered health assistant.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="../index.html" class="logo">Joshua Ola</a>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="../index.html#portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            <div class="project-hero-content">
+                <span class="project-category-badge web-app-badge"><i class="fas fa-globe"></i> Web Application</span>
+                <h1>HealthSync – Full-Stack Healthcare Management Platform</h1>
+                <p class="lead">A comprehensive multi-role healthcare management platform enabling real-time patient
+                    monitoring, care coordination, and secure communication between healthcare providers, patients, and
+                    their families.</p>
+                <div class="project-meta">
+                    <div class="project-meta-item"><strong>Category</strong>Web Application</div>
+                    <div class="project-meta-item"><strong>Role</strong>Full Stack Developer</div>
+                    <div class="project-meta-item"><strong>Compliance</strong>HIPAA-Compliant</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>HealthSync is a comprehensive healthcare management platform designed to bridge the gap between
+                    patients, healthcare providers, and family members. The platform supports multiple user roles with
+                    dedicated dashboards and features tailored to each stakeholder's needs.</p>
+            </div>
+
+            <!-- Screenshots Gallery -->
+            <div class="project-screenshots">
+                <h2><i class="fas fa-images"></i> Project Screenshots</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-item">
+                        <img src="../images/HealthSync6.png" alt="Admin Dashboard">
+                        <div class="screenshot-caption">
+                            <h4>Admin Dashboard</h4>
+                            <p>Central management interface showing patient stats, appointments, and system health
+                                metrics.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="../images/HealthSync4.png" alt="Patient Vitals Monitor">
+                        <div class="screenshot-caption">
+                            <h4>Patient Vitals Monitor</h4>
+                            <p>Real-time vital signs tracking with heart rate, blood pressure, and alert thresholds.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="../images/HealthSync7.png" alt="Video Consultation">
+                        <div class="screenshot-caption">
+                            <h4>Video Consultation</h4>
+                            <p>WebRTC-powered telemedicine interface for remote patient consultations.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="../images/HealthSync2.png" alt="Patient Portal">
+                        <div class="screenshot-caption">
+                            <h4>Patient Portal</h4>
+                            <p>Patient-facing interface for viewing health records, appointments, and care plans.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-star"></i> Key Features</h2>
+                <ul>
+                    <li><strong>Multi-Role Dashboard System:</strong> Separate interfaces for Administrators,
+                        Physicians, Caregivers, Patients, and Family Members with RBAC</li>
+                    <li><strong>Real-Time Patient Monitoring:</strong> Live vitals tracking with automatic alerts for
+                        abnormal readings</li>
+                    <li><strong>WebRTC Video Consultations:</strong> Built-in video consultation feature for remote
+                        patient care</li>
+                    <li><strong>AI-Powered Health Assistant:</strong> OpenAI and Groq integration for health queries and
+                        care recommendations</li>
+                    <li><strong>Two-Factor Authentication:</strong> TOTP-based 2FA with QR code setup for enhanced
+                        security</li>
+                    <li><strong>Real-Time Data Sync:</strong> WebSockets and Server-Sent Events for instant updates</li>
+                    <li><strong>Comprehensive Audit Logging:</strong> Full activity tracking for compliance requirements
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-cogs"></i> Technology Stack</h2>
+                <div class="tech-stack-grid">
+                    <div class="tech-stack-item"><i class="fab fa-react"></i>
+                        <h4>Next.js 16</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fab fa-react"></i>
+                        <h4>React 18</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fab fa-python"></i>
+                        <h4>Flask</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-plug"></i>
+                        <h4>Flask-SocketIO</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-video"></i>
+                        <h4>WebRTC</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-shield-alt"></i>
+                        <h4>JWT & TOTP</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-database"></i>
+                        <h4>SQLite</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-robot"></i>
+                        <h4>OpenAI API</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-clipboard-check"></i> Technical Highlights</h2>
+                <ul>
+                    <li>Designed RESTful API with 50+ endpoints supporting real-time data synchronization</li>
+                    <li>Implemented rate limiting, input sanitization, and comprehensive security measures</li>
+                    <li>Built responsive multi-role interfaces with role-specific navigation and features</li>
+                    <li>Integrated WebRTC for peer-to-peer video communication with fallback mechanisms</li>
+                </ul>
+            </div>
+
+            <div class="project-section" style="text-align: center; padding-top: 2rem;">
+                <a href="../index.html#portfolio" class="btn btn-gradient"><i class="fas fa-arrow-left"></i> Back to All
+                    Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Joshua Ayokunle Ola. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,786 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>Joshua Ayokunle Ola - Full Stack Developer & Data Scientist</title>
+    <meta name="description"
+        content="Joshua Ayokunle Ola - Full Stack Developer & AI Engineer specializing in web applications, machine learning, and data science.">
+    <title>Joshua Ayokunle Ola - Full Stack Developer & AI Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            color: var(--dark);
-            background: var(--light);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* Animated Background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .animated-bg::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: bgMove 20s linear infinite;
-        }
-
-        @keyframes bgMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            padding: 1.2rem 0;
-            z-index: 1000;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .navbar.scrolled {
-            padding: 0.8rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-1);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 80px;
-            overflow: hidden;
-        }
-
-        .hero-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: float 15s infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-size: 4.5rem;
-            font-weight: 800;
-            color: white;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero-text .gradient-text {
-            background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.8) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text .subtitle {
-            font-size: 1.8rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
-        }
-
-        .hero-text .description {
-            font-size: 1.15rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            animation: fadeInUp 0.8s ease 0.6s backwards;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-outline {
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: fadeInUp 0.8s ease 0.3s backwards;
-        }
-
-        .profile-wrapper {
-            position: relative;
-            width: 450px;
-            height: 450px;
-            margin: 0 auto;
-        }
-
-        .profile-blob {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1));
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            animation: morph 8s ease-in-out infinite;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes morph {
-            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
-            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
-            75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
-        }
-
-        .profile-image {
-            position: relative;
-            width: 380px;
-            height: 380px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            z-index: 2;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-wrapper:hover .profile-image {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        /* About Section */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 5px;
-            background: var(--gradient-1);
-            border-radius: 3px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 4rem;
-        }
-
-        .section-subtitle.white {
-            color: white;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto 4rem;
-            text-align: center;
-            font-size: 1.15rem;
-            line-height: 1.9;
-            color: #475569;
-        }
-
-        .about-content.white {
-            color: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-1);
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        /* Portfolio Section */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .portfolio-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-1);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: 1;
-        }
-
-        .portfolio-card:hover::before {
-            opacity: 0.05;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
-        }
-
-        .portfolio-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.4s;
-        }
-
-        .portfolio-card:hover .portfolio-image {
-            transform: scale(1.1);
-        }
-
-        .portfolio-body {
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .portfolio-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .portfolio-description {
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .portfolio-link {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s;
-        }
-
-        .portfolio-link:hover {
-            gap: 1rem;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .skill-category {
-            margin-bottom: 3rem;
-        }
-
-        .skill-category h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill-item {
-            background: white;
-            padding: 1rem 1.75rem;
-            border-radius: 50px;
-            font-weight: 600;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: default;
-        }
-
-        .skill-item:hover {
-            background: var(--gradient-1);
-            color: white;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--gradient-1);
-            color: white;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            border: none;
-            background: rgba(255, 255, 255, 0.95);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-            background: white;
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background: white;
-            color: var(--primary);
-            padding: 1rem 3rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: #0f172a;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-link:hover {
-            background: var(--gradient-1);
-            transform: translateY(-5px);
-        }
-
-        /* Scroll to Top */
-        #scrollTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient-1);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-            z-index: 999;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
-        }
-
-        #scrollTop.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        #scrollTop:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-text h1 {
-                font-size: 3rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .profile-wrapper {
-                width: 350px;
-                height: 350px;
-            }
-
-            .profile-image {
-                width: 300px;
-                height: 300px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(255, 255, 255, 0.98);
-                flex-direction: column;
-                padding: 3rem;
-                transition: left 0.3s;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .section-title {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="animated-bg"></div>
 
@@ -789,9 +23,7 @@
         <div class="container">
             <div class="nav-content">
                 <a href="#home" class="logo">Joshua Ola</a>
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -810,8 +42,9 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1><span class="gradient-text">Joshua Ayokunle Ola</span></h1>
-                    <p class="subtitle">Full Stack Web Developer</p>
-                    <p class="description">Crafting elegant web solutions and building intelligent data-driven applications with 7+ years of experience in software engineering and machine learning</p>
+                    <p class="subtitle">Full Stack Developer & AI Engineer</p>
+                    <p class="description">Crafting elegant web solutions and building intelligent AI-powered
+                        applications with 5+ years of experience in software engineering and machine learning</p>
                     <div class="hero-buttons">
                         <a href="#portfolio" class="btn btn-primary">View My Work</a>
                         <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -832,12 +65,15 @@
         <div class="container">
             <h2 class="section-title" style="color: white;">About Me</h2>
             <p class="section-subtitle white">Building digital experiences that matter</p>
-            
             <div class="about-content white">
-                <p>I am a passionate Full-Stack Software Engineer  with over 7 years of experience in developing scalable web applications, mobile solutions, and AI-powered systems. I specialize in modern JavaScript frameworks, cloud technologies, and machine learning applications.</p>
-                <p>My expertise spans across healthcare, fintech, travel, and enterprise domains, where I've successfully delivered high-quality software solutions that make a real impact. I hold a Master's degree in Computer Science from the University of Ibadan, specializing in Machine Learning and Software Engineering.</p>
+                <p>I am a passionate Full-Stack Software Engineer with over 5 years of experience in developing scalable
+                    web applications, mobile solutions, and AI-powered systems. I specialize in modern JavaScript
+                    frameworks, cloud technologies, and machine learning applications.</p>
+                <p>My expertise spans across healthcare, fintech, travel, and enterprise domains, where I've
+                    successfully delivered high-quality software solutions that make a real impact. I hold a Master's
+                    degree in Computer Science from the University of Ibadan, specializing in Machine Learning and
+                    Software Engineering.</p>
             </div>
-
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">5+</div>
@@ -846,10 +82,6 @@
                 <div class="stat-card">
                     <div class="stat-number">10+</div>
                     <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">Students Trained</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">98%</div>
@@ -863,64 +95,275 @@
     <section id="portfolio" class="section">
         <div class="container">
             <h2 class="section-title" style="color: white;">Featured Projects</h2>
-            <p class="section-subtitle white">Showcasing my best web design work</p>
+            <p class="section-subtitle white">Showcasing my best work across AI, Web Development & Data Science</p>
+
+            <!-- Category Filter Tabs -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> All
+                    Projects</button>
+                <button class="filter-btn" data-filter="ai-ml"><i class="fas fa-brain"></i> AI/Machine Learning</button>
+                <button class="filter-btn" data-filter="web-app"><i class="fas fa-globe"></i> Web Applications</button>
+                <button class="filter-btn" data-filter="data-analysis"><i class="fas fa-chart-bar"></i> Data
+                    Analysis</button>
+            </div>
 
             <div class="portfolio-grid">
-                <div class="portfolio-card">
+                <!-- AI/ML Projects -->
+                <a href="projects/stoicism.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/stoicism1.png" alt="Stoicism Financial Platform" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">Stoicism – Financial Multi-Agent Analysis Platform</h3>
+                        <p class="portfolio-description">Enterprise-grade financial research platform using Multi-Agent
+                            System architecture for market data retrieval, technical analysis, and news sentiment.
+                            Reduces manual research time by 80%.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Next.js 16</span>
+                            <span class="tech-tag">LangGraph</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="projects/hr-recruitment.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/HR1.png" alt="HR Recruitment Platform" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">Multi-Agent HR Recruitment Platform</h3>
+                        <p class="portfolio-description">AI-powered recruitment system with 9 specialized agents
+                            including Requirement Analyst, Resume Parser, and Onboarding Orchestrator. 50+ RESTful
+                            endpoints.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Next.js 14</span>
+                            <span class="tech-tag">SQLAlchemy</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="projects/forensics-ai.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/Foresinc1.png" alt="Digital Forensics Platform" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">AI-Powered Digital Forensics Investigation Platform</h3>
+                        <p class="portfolio-description">Automated digital forensics analysis with AI-powered threat
+                            detection. Cryptographic chain of custody with SHA-256 for legal compliance.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Anthropic Claude</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="projects/inventory-ai.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/Actuality1.png" alt="Inventory Management System" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">AI-Powered Inventory Management System</h3>
+                        <p class="portfolio-description">Intelligent inventory with LLMs and RAG architecture.
+                            Voice-controlled operations using Whisper—reducing data retrieval time by 70%.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">GPT-4</span>
+                            <span class="tech-tag">Whisper</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="projects/alzheimers-cnn.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/AD.png" alt="Alzheimer's CNN Classification" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">Deep Learning Classification of Alzheimer's Disease</h3>
+                        <p class="portfolio-description">CNN model for classifying Alzheimer's stages from brain MRI.
+                            Presented at AAIC 2025, published in peer-reviewed journal.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">ResNet50</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- <a href="projects/financial-analyst-ai.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/stoicism1.png" alt="Financial Analyst AI" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">Financial Analyst AI Agent - Production System</h3>
+                        <p class="portfolio-description">Enterprise Financial Analyst AI with live market data from
+                            Alpha Vantage and Yahoo Finance. Predictive models and trading signals.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a> -->
+
+                <!-- <a href="projects/ai-cms.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/ai-cms.png" alt="AI Content Management System" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">AI-Powered Content Management System</h3>
+                        <p class="portfolio-description">Intelligent CMS with AI-driven content generation. Smart
+                            categorization, SEO recommendations—40% reduction in content creation time.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">GPT-4</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a> -->
+
+                <!-- <a href="projects/triallight.html" class="portfolio-card" data-category="ai-ml">
+                    <div class="category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/ML</div>
+                    <img src="images/triallight.png" alt="TrialLight Clinical Trial Intelligence"
+                        class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">TrialLight - AI Clinical Trial Intelligence</h3>
+                        <p class="portfolio-description">Google AI Hackathon project. Semantic search with Vertex AI,
+                            MongoDB Atlas Vector Search for patient-trial matching.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Google Cloud AI</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a> -->
+
+                <!-- Web Application Projects -->
+                <a href="projects/healthsync.html" class="portfolio-card" data-category="web-app">
+                    <div class="category-badge web-app-badge"><i class="fas fa-globe"></i> Web App</div>
+                    <img src="images/HealthSync1.png" alt="HealthSync Healthcare Platform" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">HealthSync – Healthcare Management Platform</h3>
+                        <p class="portfolio-description">Multi-role healthcare platform with real-time patient
+                            monitoring, WebRTC video consultations, AI-powered health assistant. HIPAA-compliant.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Next.js 16</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">WebRTC</span>
+                            <span class="tech-tag">TOTP</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <a href="projects/mindcare.html" class="portfolio-card" data-category="web-app">
+                    <div class="category-badge web-app-badge"><i class="fas fa-globe"></i> Web App</div>
+                    <img src="images/MindCare1.png" alt="MindCare Mental Health Platform" class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">MindCare – Mental Health Wellness Platform</h3>
+                        <p class="portfolio-description">MERN stack mental health app with Redux state management, Mood
+                            Tracking, Journaling, and Evidence-Based Recovery Programs.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <div class="portfolio-card" data-category="web-app">
+                    <div class="category-badge web-app-badge"><i class="fas fa-globe"></i> Web App</div>
                     <img src="Portfiolo3.png" alt="Yourecover" class="portfolio-image">
                     <div class="portfolio-body">
                         <h3 class="portfolio-title">Yourecover</h3>
-                        <p class="portfolio-description">Faith-driven mental health and recovery support platform rooted in compassion, prayer, and professional care. A comprehensive website for a Christian non-profit organization.</p>
+                        <p class="portfolio-description">Faith-driven mental health and recovery support platform rooted
+                            in compassion, prayer, and professional care.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">WordPress</span>
                             <span class="tech-tag">PHP</span>
                             <span class="tech-tag">MySQL</span>
                         </div>
-                        <a href="https://urecover.org/index.html" target="_blank" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://urecover.org/index.html" target="_blank" class="portfolio-link">View Project <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="portfolio-card">
+                <div class="portfolio-card" data-category="web-app">
+                    <div class="category-badge web-app-badge"><i class="fas fa-globe"></i> Web App</div>
                     <img src="Portfiolo5.png" alt="Feranmi Williams" class="portfolio-image">
                     <div class="portfolio-body">
                         <h3 class="portfolio-title">Feranmi Williams</h3>
-                        <p class="portfolio-description">Personal portfolio website for a writer, humanitarian leader, and advocate for ethical innovation. Features a clean, modern design showcasing her work in faith, recovery, and technology.</p>
+                        <p class="portfolio-description">Personal portfolio website for a writer, humanitarian leader,
+                            and advocate for ethical innovation.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">HTML5</span>
                             <span class="tech-tag">CSS3</span>
                             <span class="tech-tag">JavaScript</span>
                         </div>
-                        <a href="https://josconicme.github.io/FeranmiWilliams/" target="_blank" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://josconicme.github.io/FeranmiWilliams/" target="_blank"
+                            class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="portfolio-card">
+                <div class="portfolio-card" data-category="web-app">
+                    <div class="category-badge web-app-badge"><i class="fas fa-globe"></i> Web App</div>
                     <img src="Portfiolo4.png" alt="Jolboxx Travels" class="portfolio-image">
                     <div class="portfolio-body">
                         <h3 class="portfolio-title">Jolboxx Travels & Tours</h3>
-                        <p class="portfolio-description">Comprehensive travel and immigration platform offering personalized travel experiences and international education services with booking system and payment integration.</p>
+                        <p class="portfolio-description">Comprehensive travel and immigration platform with booking
+                            system and payment integration.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">WordPress</span>
                             <span class="tech-tag">WooCommerce</span>
                             <span class="tech-tag">PHP</span>
                         </div>
-                        <a href="https://jolboxxtravels.com/" target="_blank" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://jolboxxtravels.com/" target="_blank" class="portfolio-link">View Project <i
+                                class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <div class="portfolio-card">
+                <div class="portfolio-card" data-category="web-app">
+                    <div class="category-badge web-app-badge"><i class="fas fa-globe"></i> Web App</div>
                     <img src="Portfiolo1.png" alt="Linnexus AI" class="portfolio-image">
                     <div class="portfolio-body">
                         <h3 class="portfolio-title">Linnexus AI Institute</h3>
-                        <p class="portfolio-description">Educational platform focused on Generative AI education and ethics for African professionals. Modern, interactive website featuring course management and enrollment system.</p>
+                        <p class="portfolio-description">Educational platform for Generative AI education and ethics for
+                            African professionals.</p>
                         <div class="tech-tags">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Node.js</span>
                             <span class="tech-tag">MongoDB</span>
                         </div>
-                        <a href="https://josconicme.github.io/linnexusinstitute/" target="_blank" class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://josconicme.github.io/linnexusinstitute/" target="_blank"
+                            class="portfolio-link">View Project <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+
+                <!-- Data Analysis Projects -->
+                <a href="projects/workplace-analysis.html" class="portfolio-card" data-category="data-analysis">
+                    <div class="category-badge data-badge"><i class="fas fa-chart-bar"></i> Data Analysis</div>
+                    <img src="images/analysis.jpg" alt="Workplace Exhaustion Analysis"
+                        class="portfolio-image">
+                    <div class="portfolio-body">
+                        <h3 class="portfolio-title">Workplace Exhaustion & Employee Support Analysis</h3>
+                        <p class="portfolio-description">Comprehensive analysis using European Work Life Dataset.
+                            Regression, LASSO, random forest models—87% accuracy.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LASSO</span>
+                            <span class="tech-tag">Random Forest</span>
+                        </div>
+                        <span class="portfolio-link">View Details <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -930,7 +373,6 @@
         <div class="container">
             <h2 class="section-title">Skills & Expertise</h2>
             <p class="section-subtitle">Technologies I work with</p>
-
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Frontend Development</h3>
@@ -938,49 +380,47 @@
                         <span class="skill-item">HTML5</span>
                         <span class="skill-item">CSS3</span>
                         <span class="skill-item">JavaScript</span>
-                        <span class="skill-item">React</span>
-                        <span class="skill-item">Vue.js</span>
                         <span class="skill-item">TypeScript</span>
-                        <span class="skill-item">Tailwind CSS</span>
-                        <span class="skill-item">Bootstrap</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">Vue.js</span>
+                        <span class="skill-item">TailwindCSS</span>
                     </div>
                 </div>
-
                 <div class="skill-category">
                     <h3>Backend Development</h3>
                     <div class="skill-items">
                         <span class="skill-item">Node.js</span>
                         <span class="skill-item">Python</span>
-                        <span class="skill-item">PHP</span>
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Flask</span>
                         <span class="skill-item">Express.js</span>
-                        <span class="skill-item">Django</span>
-                        <span class="skill-item">REST APIs</span>
-                        <span class="skill-item">GraphQL</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Data Science & AI</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Machine Learning</span>
-                        <span class="skill-item">TensorFlow</span>
-                        <span class="skill-item">PyTorch</span>
-                        <span class="skill-item">Scikit-learn</span>
-                        <span class="skill-item">Pandas</span>
-                        <span class="skill-item">NumPy</span>
-                        <span class="skill-item">Data Visualization</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Database & Cloud</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">MongoDB</span>
-                        <span class="skill-item">MySQL</span>
                         <span class="skill-item">PostgreSQL</span>
-                        <span class="skill-item">AWS</span>
-                        <span class="skill-item">Firebase</span>
+                        <span class="skill-item">MongoDB</span>
+                        <span class="skill-item">Redis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">TensorFlow</span>
+                        <span class="skill-item">LangChain</span>
+                        <span class="skill-item">OpenAI GPT</span>
+                        <span class="skill-item">Anthropic Claude</span>
+                        <span class="skill-item">Scikit-learn</span>
+                        <span class="skill-item">RAG</span>
+                        <span class="skill-item">Multi-Agent Systems</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Cloud</h3>
+                    <div class="skill-items">
+                        <span class="skill-item">Git</span>
                         <span class="skill-item">Docker</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">Google Cloud</span>
+                        <span class="skill-item">Vercel</span>
+                        <span class="skill-item">GitHub Actions</span>
                     </div>
                 </div>
             </div>
@@ -991,33 +431,24 @@
     <section id="contact" class="section contact-section">
         <div class="container">
             <h2 class="section-title" style="color: white;">Get In Touch</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Let's work together on your next project</p>
-
+            <p class="section-subtitle white">Let's work together on your next project</p>
             <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <span>projosconic99@gmail.com</span>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <span>+234 07084336469</span>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <span>+234 708 433 6469</span>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <span>37, Unity Avenue Street, Ikotun, <br>
-                            Lagos, Nigeria.</span>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <span>Lagos, Nigeria</span>
                     </div>
                 </div>
-
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xanyegpo" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/xgvknqzq" method="POST">
                     <div class="form-group">
                         <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                     </div>
@@ -1025,12 +456,12 @@
                         <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        <input type="text" name="subject" class="form-control" placeholder="Subject">
                     </div>
                     <div class="form-group">
                         <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Send Message</button>
+                    <button type="submit" class="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
@@ -1039,212 +470,20 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Joshua Ayokunle Ola. All rights reserved.</p>
+            <p>&copy; 2026 Joshua Ayokunle Ola. All rights reserved.</p>
             <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/josconicme" target="_blank" class="social-link"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/joshuaolaayokunle" target="_blank" class="social-link"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/josconicme" target="_blank" class="social-link"><i
+                        class="fab fa-twitter"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const icon = menuToggle.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        createParticles();
-
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const form = e.target;
-            const formData = new FormData(form);
-            const submitBtn = form.querySelector('.btn-submit');
-            const originalText = submitBtn.textContent;
-            
-            // Disable button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    alert('Thank you for your message! I will get back to you soon.');
-                    form.reset();
-                } else {
-                    alert('Oops! There was a problem submitting your form. Please try again.');
-                }
-            } catch (error) {
-                alert('Oops! There was a problem submitting your form. Please try again.');
-            } finally {
-                // Re-enable button
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-            }
-        });
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all portfolio cards and stat cards
-        document.querySelectorAll('.portfolio-card, .stat-card, .skill-category').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Version Control and Cache Busting
-        const SITE_VERSION = '1.0.0';
-        const LAST_UPDATED = '2025-11-05';
-        
-        // Check for updates every 5 minutes when page is active
-        let updateCheckInterval = setInterval(() => {
-            if (document.visibilityState === 'visible') {
-                fetch(window.location.href, {
-                    method: 'HEAD',
-                    cache: 'no-cache'
-                }).then(response => {
-                    const serverDate = new Date(response.headers.get('Last-Modified'));
-                    const cachedDate = new Date(localStorage.getItem('lastPageLoad') || 0);
-                    
-                    if (serverDate > cachedDate) {
-                        // Show update notification
-                        if (confirm('A new version of this website is available. Would you like to reload?')) {
-                            localStorage.setItem('lastPageLoad', new Date().toISOString());
-                            window.location.reload(true);
-                        }
-                    }
-                }).catch(() => {
-                    // Silently fail if offline
-                });
-            }
-        }, 300000); // Check every 5 minutes
-
-        // Store initial page load time
-        if (!localStorage.getItem('lastPageLoad')) {
-            localStorage.setItem('lastPageLoad', new Date().toISOString());
-        }
-
-        // Force reload images if they don't load properly
-        document.querySelectorAll('img').forEach(img => {
-            img.onerror = function() {
-                if (!this.dataset.retried) {
-                    this.dataset.retried = 'true';
-                    const src = this.src;
-                    this.src = '';
-                    setTimeout(() => {
-                        this.src = src + '?t=' + Date.now();
-                    }, 100);
-                }
-            };
-        });
-
-        // Log version info to console
-        console.log(`%c Portfolio Website v${SITE_VERSION}`, 'color: #667eea; font-size: 16px; font-weight: bold;');
-        console.log(`%c Last Updated: ${LAST_UPDATED}`, 'color: #764ba2; font-size: 12px;');
-        console.log(`%c Developer: Joshua Ayokunle Ola`, 'color: #6366f1; font-size: 12px;');
-    </script>
+    <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="script.js"></script>
 </body>
+
 </html>

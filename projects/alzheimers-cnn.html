@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning Alzheimer's Classification | Joshua Ola</title>
+    <meta name="description"
+        content="CNN model for classifying Alzheimer's disease stages from brain MRI, presented at AAIC 2025.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="animated-bg"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="../index.html" class="logo">Joshua Ola</a>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li><a href="../index.html#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="container">
+            <a href="../index.html#portfolio" class="back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+            <div class="project-hero-content">
+                <span class="project-category-badge ai-ml-badge"><i class="fas fa-brain"></i> AI/Machine Learning</span>
+                <h1>Enhanced Deep Learning Classification of Alzheimer's Disease</h1>
+                <p class="lead">A CNN-based model for classifying Alzheimer's disease stages from brain MRI scans,
+                    achieving significant accuracy improvements through advanced data augmentation techniques.</p>
+                <div class="project-meta">
+                    <div class="project-meta-item"><strong>Category</strong>Medical AI Research</div>
+                    <div class="project-meta-item"><strong>Conference</strong>AAIC 2025</div>
+                    <div class="project-meta-item"><strong>Status</strong>Published</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <div class="project-section">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+                <p>This research project developed a deep learning model capable of accurately classifying different
+                    stages of Alzheimer's disease from brain MRI images. The model was trained on a cohort of 400+
+                    students and achieved significant improvements in diagnostic accuracy through innovative data
+                    augmentation techniques.</p>
+            </div>
+
+            <!-- Screenshots Gallery -->
+            <div class="project-screenshots">
+                <h2><i class="fas fa-images"></i> Project Visualizations</h2>
+                <div class="screenshots-grid">
+                    <div class="screenshot-item">
+                        <img src="../images/CNN-architecture.jpg" alt="CNN Architecture">
+                        <div class="screenshot-caption">
+                            <h4>CNN Architecture</h4>
+                            <p>ResNet50-based neural network architecture with custom classification head.</p>
+                        </div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="../images/MRI.jpg" alt="MRI Sample Images">
+                        <div class="screenshot-caption">
+                            <h4>MRI Sample Images</h4>
+                            <p>Brain MRI scans showing different stages of Alzheimer's progression.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-star"></i> Research Highlights</h2>
+                <ul>
+                    <li><strong>ResNet50 Architecture:</strong> Leveraged transfer learning with ResNet50 for robust
+                        feature extraction</li>
+                    <li><strong>Advanced Augmentation:</strong> Implemented sophisticated data augmentation for model
+                        robustness</li>
+                    <li><strong>Large-Scale Training:</strong> Trained on 400+ student cohort dataset</li>
+                    <li><strong>AAIC Presentation:</strong> Research presented at Alzheimer's Association International
+                        Conference 2025</li>
+                    <li><strong>Peer-Reviewed Publication:</strong> Findings published in medical journal</li>
+                    <li><strong>HPC Computing:</strong> Utilized Polaris high-performance computing for training</li>
+                </ul>
+            </div>
+
+            <div class="project-section">
+                <h2><i class="fas fa-cogs"></i> Technology Stack</h2>
+                <div class="tech-stack-grid">
+                    <div class="tech-stack-item"><i class="fab fa-python"></i>
+                        <h4>Python</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-brain"></i>
+                        <h4>TensorFlow</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-network-wired"></i>
+                        <h4>ResNet50</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-microscope"></i>
+                        <h4>FSL</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-cloud"></i>
+                        <h4>Google Colab</h4>
+                    </div>
+                    <div class="tech-stack-item"><i class="fas fa-server"></i>
+                        <h4>HPC Polaris</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section" style="text-align: center; padding-top: 2rem;">
+                <a href="../index.html#portfolio" class="btn btn-gradient"><i class="fas fa-arrow-left"></i> Back to All
+                    Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Joshua Ayokunle Ola. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <button id="scrollTop"><i class="fas fa-arrow-up"></i></button>
+    <script src="../script.js"></script>
+</body>
+
+</html>
